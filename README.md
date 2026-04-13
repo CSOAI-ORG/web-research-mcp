@@ -1,3 +1,5 @@
+> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+
 # Web Research MCP Server
 
 Web search and browser automation toolkit for AI agents. Search the web via DuckDuckGo (no API key), browse pages with headless Chromium, extract article content, take screenshots, interact with forms, and run multi-step research workflows that search and read multiple pages automatically.

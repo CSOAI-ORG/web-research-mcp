@@ -13,12 +13,41 @@ Run:     python server.py
 import json
 import re
 import subprocess
-import tempfile
 import base64
+from urllib.parse import urlparse
 from datetime import datetime, timedelta
 from typing import Optional
 from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
+
+# ---------------------------------------------------------------------------
+# SSRF Protection
+# ---------------------------------------------------------------------------
+BLOCKED_HOSTS = [
+    "localhost", "127.0.0.1", "0.0.0.0", "::1",
+    "169.254.169.254",  # AWS metadata
+    "metadata.google.internal",  # GCP metadata
+]
+BLOCKED_PREFIXES = ["10.", "172.16.", "172.17.", "172.18.", "172.19.",
+                     "172.20.", "172.21.", "172.22.", "172.23.", "172.24.",
+                     "172.25.", "172.26.", "172.27.", "172.28.", "172.29.",
+                     "172.30.", "172.31.", "192.168."]
+
+
+def _is_safe_url(url: str) -> bool:
+    """Block SSRF attempts targeting internal/cloud metadata services."""
+    try:
+        parsed = urlparse(url)
+        host = parsed.hostname or ""
+        if host in BLOCKED_HOSTS:
+            return False
+        if any(host.startswith(p) for p in BLOCKED_PREFIXES):
+            return False
+        if parsed.scheme not in ("http", "https"):
+            return False
+        return True
+    except Exception:
+        return False
 
 # ---------------------------------------------------------------------------
 # Rate limiting
@@ -231,6 +260,8 @@ def browse_page(url: str, action: str = "extract", instruction: str = "") -> dic
         return {"error": err}
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
+    if not _is_safe_url(url):
+        return {"error": "URL blocked: internal/private network addresses are not allowed"}
     return _browse_page(url, action, instruction)
 
 
@@ -244,6 +275,8 @@ def extract_article(url: str) -> dict:
         return {"error": err}
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
+    if not _is_safe_url(url):
+        return {"error": "URL blocked: internal/private network addresses are not allowed"}
     return _extract_article(url)
 
 
