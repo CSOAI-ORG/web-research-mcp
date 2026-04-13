@@ -1,0 +1,10 @@
+name: web-research-mcp
+description: "MEOK AI Labs — Web browsing and research toolkit for AI agents. Search the web via DuckDuckGo,"
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/web-research-mcp
+license: MIT
+categories: [Research, Web]
+tags: [web-research, internet-search, information-retrieval, web-scraping, knowledge-discovery]
+runtime: python
+entrypoint: server.py

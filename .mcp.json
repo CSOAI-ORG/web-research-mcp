@@ -1,0 +1,24 @@
+{
+  "name": "web-research-mcp",
+  "description": "MEOK AI Labs \u2014 Web browsing and research toolkit for AI agents. Search the web via DuckDuckGo,",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/web-research-mcp",
+  "runtime": "python",
+  "entrypoint": "server.py",
+  "tools": [
+    "web_search",
+    "browse_page",
+    "extract_article",
+    "research_topic",
+    "get_weather"
+  ],
+  "categories": [
+    "Research",
+    "Web"
+  ],
+  "pricing": {
+    "free": "50 calls/day",
+    "pro": "$9/mo"
+  }
+}
