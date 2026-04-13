@@ -1,87 +1,59 @@
-> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
-
 # Web Research MCP Server
 
-Web search and browser automation toolkit for AI agents. Search the web via DuckDuckGo (no API key), browse pages with headless Chromium, extract article content, take screenshots, interact with forms, and run multi-step research workflows that search and read multiple pages automatically.
+> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+
+Web search and browser automation toolkit for AI agents. Search the web via DuckDuckGo (no API key), browse pages with headless Chromium, extract article content, take screenshots, and run multi-step research workflows.
+
+[![MCPize](https://img.shields.io/badge/MCPize-Listed-blue)](https://mcpize.com/mcp/web-research)
+[![MIT License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `web_search` | DuckDuckGo search -- no API key required |
-| `browse_page` | Full browser automation: extract, screenshot, click, type, PDF |
-| `extract_article` | Clean article extraction (strips nav/ads/boilerplate) |
-| `research_topic` | Multi-step workflow: search + read top N pages + compile brief |
-| `get_weather` | Current weather for any location (wttr.in) |
+| `web_search` | Search the web using DuckDuckGo (no API key needed) |
+| `browse_page` | Browse a webpage using headless Chromium (Playwright) |
+| `extract_article` | Extract clean, readable article text from a URL |
+| `research_topic` | Multi-step research: search the web, then extract content |
+| `get_weather` | Get current weather for a location via wttr.in |
 
-## Installation
-
-```bash
-pip install mcp httpx playwright duckduckgo-search
-python -m playwright install chromium
-```
-
-The `duckduckgo-search` package is optional -- the server falls back to HTML scraping if not installed. Playwright + Chromium is required for browse_page, extract_article, and research_topic.
-
-## Usage
-
-### Run the server
+## Quick Start
 
 ```bash
+pip install mcp
+git clone https://github.com/CSOAI-ORG/web-research-mcp.git
+cd web-research-mcp
 python server.py
 ```
 
-### Claude Desktop config
+## Claude Desktop Config
 
 ```json
 {
   "mcpServers": {
     "web-research": {
       "command": "python",
-      "args": ["/path/to/web-research-mcp/server.py"]
+      "args": ["server.py"],
+      "cwd": "/path/to/web-research-mcp"
     }
   }
 }
 ```
 
-### Example calls
-
-**Web search:**
-```
-Tool: web_search
-Input: {"query": "best practices for MCP server development", "limit": 5}
-Output: {"results": [{"title": "...", "url": "...", "snippet": "..."}], "query": "...", "engine": "duckduckgo"}
-```
-
-**Browse and extract page:**
-```
-Tool: browse_page
-Input: {"url": "https://example.com/article", "action": "extract"}
-Output: {"status": "ok", "title": "...", "text": "...", "links": [...]}
-```
-
-**Take screenshot:**
-```
-Tool: browse_page
-Input: {"url": "https://example.com", "action": "screenshot"}
-Output: {"status": "ok", "image_base64": "...", "full_size_bytes": 142531}
-```
-
-**Research a topic (automated):**
-```
-Tool: research_topic
-Input: {"query": "MCP protocol specification 2026", "depth": 3}
-Output: {"pages_searched": 5, "pages_read": 3, "sources": [...], "brief": "# Research: ..."}
-```
-
 ## Pricing
 
-| Tier | Limit | Price |
-|------|-------|-------|
-| Free | 25 calls/day | $0 |
-| Pro | Unlimited + full screenshots + PDF export | $9/mo |
-| Enterprise | Custom + proxy rotation + CAPTCHA solving | Contact us |
+| Plan | Price | Requests |
+|------|-------|----------|
+| Free | $0/mo | 25 calls/day |
+| Pro | $9/mo | Unlimited + full screenshots + PDF export |
+| Enterprise | Contact us | Custom + proxy rotation + CAPTCHA solving |
 
-## License
+[Get on MCPize](https://mcpize.com/mcp/web-research)
 
-MIT
+## Part of MEOK AI Labs
+
+This is one of 255+ MCP servers by MEOK AI Labs. Browse all at [meok.ai](https://meok.ai) or [GitHub](https://github.com/CSOAI-ORG).
+
+---
+**MEOK AI Labs** | [meok.ai](https://meok.ai) | nicholas@meok.ai | United Kingdom
