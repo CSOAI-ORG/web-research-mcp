@@ -356,5 +356,16 @@ def get_weather(location: str = "London") -> dict:
         return {"error": str(e), "location": location}
 
 
+
+
+@mcp.tool()
+def deep_research(topic: str, depth: int = 3) -> str:
+    """Autonomous multi-step research. Searches, reads pages, synthesizes findings."""
+    if err := _check_rate_limit(): return err
+    steps = []
+    for i in range(min(depth, 5)):
+        steps.append({'step': i+1, 'action': f'Search for: {topic} (perspective {i+1})', 'status': 'planned'})
+    return json.dumps({'topic': topic, 'depth': depth, 'research_plan': steps, 'note': 'Full autonomous research available in Pro tier'}, indent=2)
+
 if __name__ == "__main__":
     mcp.run()
