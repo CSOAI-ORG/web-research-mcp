@@ -240,9 +240,13 @@ mcp = FastMCP(
 
 
 @mcp.tool()
-def web_search(query: str, limit: int = 5) -> dict:
+def web_search(query: str, limit: int = 5, api_key: str = "") -> dict:
     """Search the web using DuckDuckGo. Returns titles, URLs, and snippets
     for the top results. No API key required."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -250,7 +254,7 @@ def web_search(query: str, limit: int = 5) -> dict:
 
 
 @mcp.tool()
-def browse_page(url: str, action: str = "extract", instruction: str = "") -> dict:
+def browse_page(url: str, action: str = "extract", instruction: str = "", api_key: str = "") -> dict:
     """Browse a webpage using a headless Chromium browser (Playwright).
     Actions:
     - extract: Get page title, description, text content, and links
@@ -259,6 +263,10 @@ def browse_page(url: str, action: str = "extract", instruction: str = "") -> dic
     - type: Type text into input (format: 'text to type into selector')
     - pdf: Save page as PDF (base64)
     Requires: playwright installed with chromium."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -270,10 +278,14 @@ def browse_page(url: str, action: str = "extract", instruction: str = "") -> dic
 
 
 @mcp.tool()
-def extract_article(url: str) -> dict:
+def extract_article(url: str, api_key: str = "") -> dict:
     """Extract clean, readable article text from a URL. Strips navigation,
     ads, and boilerplate. Returns title, article text, word count, and
     paragraph count."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -285,10 +297,14 @@ def extract_article(url: str) -> dict:
 
 
 @mcp.tool()
-def research_topic(query: str, depth: int = 3) -> dict:
+def research_topic(query: str, depth: int = 3, api_key: str = "") -> dict:
     """Multi-step research workflow: search the web, then extract content from
     the top results. Returns a compiled research brief with sources.
     Depth controls how many pages to read (1-5)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -336,8 +352,12 @@ def research_topic(query: str, depth: int = 3) -> dict:
 
 
 @mcp.tool()
-def get_weather(location: str = "London") -> dict:
+def get_weather(location: str = "London", api_key: str = "") -> dict:
     """Get current weather for a location using wttr.in (no API key needed)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     err = _check_rate_limit()
     if err:
         return {"error": err}
@@ -366,13 +386,17 @@ def get_weather(location: str = "London") -> dict:
 
 
 @mcp.tool()
-def deep_research(topic: str, depth: int = 3) -> str:
+def deep_research(topic: str, depth: int = 3, api_key: str = "") -> str:
     """Autonomous multi-step research. Searches, reads pages, synthesizes findings."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _check_rate_limit(): return err
     steps = []
     for i in range(min(depth, 5)):
         steps.append({'step': i+1, 'action': f'Search for: {topic} (perspective {i+1})', 'status': 'planned'})
-    return json.dumps({'topic': topic, 'depth': depth, 'research_plan': steps, 'note': 'Full autonomous research available in Pro tier'}, indent=2)
+    return {'topic': topic, 'depth': depth, 'research_plan': steps, 'note': 'Full autonomous research available in Pro tier'}
 
 
 @mcp.tool(name="autonomous_research")
@@ -381,7 +405,7 @@ async def autonomous_research(topic: str, depth: int = 2, api_key: str = "") -> 
     import json
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     
     steps = []
     for i in range(depth):
@@ -391,12 +415,12 @@ async def autonomous_research(topic: str, depth: int = 2, api_key: str = "") -> 
             "sources": ["arxiv.org", "eur-lex.europa.eu", "nist.gov"],
             "summary": f"Synthetic research finding for {topic} at depth {i+1}"
         })
-    return json.dumps({
+    return {
         "topic": topic,
         "depth": depth,
         "steps": steps,
         "synthesis": f"Autonomous research on '{topic}' completed with {depth} iterative queries."
-    })
+    }
 
 if __name__ == "__main__":
     mcp.run()

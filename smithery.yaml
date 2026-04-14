@@ -1,10 +1,67 @@
 name: web-research-mcp
-description: "MEOK AI Labs — Web browsing and research toolkit for AI agents. Search the web via DuckDuckGo,"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/web-research-mcp
-license: MIT
-categories: [Research, Web]
-tags: [web-research, internet-search, information-retrieval, web-scraping, knowledge-discovery]
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: web_search
+  description: Search the web using DuckDuckGo. Returns titles, URLs, and snippets
+  parameters:
+  - name: query
+    type: string
+    required: true
+  - name: limit
+    type: integer
+    required: false
+- name: browse_page
+  description: Browse a webpage using a headless Chromium browser (Playwright).
+  parameters:
+  - name: url
+    type: string
+    required: true
+  - name: action
+    type: string
+    required: false
+  - name: instruction
+    type: string
+    required: false
+- name: extract_article
+  description: Extract clean, readable article text from a URL. Strips navigation,
+  parameters:
+  - name: url
+    type: string
+    required: true
+- name: research_topic
+  description: 'Multi-step research workflow: search the web, then extract content
+    from'
+  parameters:
+  - name: query
+    type: string
+    required: true
+  - name: depth
+    type: integer
+    required: false
+- name: get_weather
+  description: Get current weather for a location using wttr.in (no API key needed).
+  parameters:
+  - name: location
+    type: string
+    required: false
+- name: deep_research
+  description: Autonomous multi-step research. Searches, reads pages, synthesizes
+    findings.
+  parameters:
+  - name: topic
+    type: string
+    required: true
+  - name: depth
+    type: integer
+    required: false
+- name: autonomous_research
+  description: Run an autonomous multi-step research loop on a topic.
+  parameters:
+  - name: topic
+    type: string
+    required: true
+  - name: depth
+    type: integer
+    required: false

@@ -1,24 +1,128 @@
 {
   "name": "web-research-mcp",
-  "description": "MEOK AI Labs \u2014 Web browsing and research toolkit for AI agents. Search the web via DuckDuckGo,",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/web-research-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
   "tools": [
-    "web_search",
-    "browse_page",
-    "extract_article",
-    "research_topic",
-    "get_weather"
-  ],
-  "categories": [
-    "Research",
-    "Web"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "web_search",
+      "description": "Search the web using DuckDuckGo. Returns titles, URLs, and snippets",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "browse_page",
+      "description": "Browse a webpage using a headless Chromium browser (Playwright).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "instruction": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "extract_article",
+      "description": "Extract clean, readable article text from a URL. Strips navigation,",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "research_topic",
+      "description": "Multi-step research workflow: search the web, then extract content from",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_weather",
+      "description": "Get current weather for a location using wttr.in (no API key needed).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "deep_research",
+      "description": "Autonomous multi-step research. Searches, reads pages, synthesizes findings.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "topic"
+        ]
+      }
+    },
+    {
+      "name": "autonomous_research",
+      "description": "Run an autonomous multi-step research loop on a topic.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "topic"
+        ]
+      }
+    }
+  ]
 }
