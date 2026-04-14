@@ -52,7 +52,7 @@ def _is_safe_url(url: str) -> bool:
 # ---------------------------------------------------------------------------
 # Rate limiting
 # ---------------------------------------------------------------------------
-FREE_DAILY_LIMIT = 25
+FREE_DAILY_LIMIT = 10
 _usage: dict[str, list[datetime]] = defaultdict(list)
 
 
