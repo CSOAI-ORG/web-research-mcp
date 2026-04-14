@@ -126,6 +126,13 @@ def _browse_page(url: str, action: str = "extract", instruction: str = "") -> di
     script = f'''
 import json, sys, base64
 from playwright.sync_api import sync_playwright
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 url = {repr(url)}
 action = {repr(action)}
 instruction = {repr(instruction)}
