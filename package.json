@@ -1,0 +1,18 @@
+{
+  "name": "web-research-mcp",
+  "version": "1.0.0",
+  "description": "MEOK AI Labs — web research MCP Server",
+  "main": "server.py",
+  "mcp": {
+    "name": "web research",
+    "vendor": "MEOK AI Labs",
+    "homepage": "https://meok.ai",
+    "repository": "https://github.com/CSOAI-ORG/web-research-mcp",
+    "runtime": "python",
+    "tags": ["mcp", "mcp-server", "meok-ai-labs", "ai-tools"]
+  },
+  "keywords": ["mcp", "mcp-server", "meok-ai-labs"],
+  "author": "MEOK AI Labs <nicholas@meok.ai>",
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/CSOAI-ORG/web-research-mcp"}
+}

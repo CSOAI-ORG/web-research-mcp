@@ -96,8 +96,7 @@ def _web_search(query: str, limit: int = 5) -> dict:
             params={"q": query},
             headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) MCP-Research/1.0"},
             timeout=10,
-            follow_redirects=True,
-        )
+            follow_redirects=True)
         # Parse result snippets from HTML
         results = []
         # Simple regex extraction from DDG HTML results
@@ -187,8 +186,7 @@ except Exception as e:
     try:
         proc = subprocess.run(
             ["python3", "-c", script],
-            capture_output=True, text=True, timeout=30,
-        )
+            capture_output=True, text=True, timeout=30)
         if proc.returncode == 0 and proc.stdout.strip():
             return json.loads(proc.stdout.strip())
         return {"status": "error", "message": proc.stderr[:500] or "No output from browser"}
@@ -231,8 +229,7 @@ def _extract_article(url: str) -> dict:
 # ---------------------------------------------------------------------------
 mcp = FastMCP(
     "Web Research MCP",
-    instructions="Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click/type automation, and article reader.",
-)
+    instructions="Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click/type automation, and article reader.")
 
 
 @mcp.tool()
@@ -343,8 +340,7 @@ def get_weather(location: str = "London") -> dict:
         r = httpx.get(
             f"https://wttr.in/{location}?format=j1",
             timeout=10,
-            headers={"User-Agent": "MCP-Research/1.0"},
-        )
+            headers={"User-Agent": "MCP-Research/1.0"})
         data = r.json()
         current = data.get("current_condition", [{}])[0]
         return {
