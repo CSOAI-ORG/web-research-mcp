@@ -1,0 +1,65 @@
+{
+  "name": "Web Research MCP",
+  "description": "Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click/type automation, and article reader.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/web-research-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "web_search",
+      "description": "Search the web using DuckDuckGo. Returns titles, URLs, and snippets"
+    },
+    {
+      "name": "browse_page",
+      "description": "Browse a webpage using a headless Chromium browser (Playwright)."
+    },
+    {
+      "name": "extract_article",
+      "description": "Extract clean, readable article text from a URL. Strips navigation,"
+    },
+    {
+      "name": "research_topic",
+      "description": "Multi-step research workflow: search the web, then extract content from"
+    },
+    {
+      "name": "get_weather",
+      "description": "Get current weather for a location using wttr.in (no API key needed)."
+    },
+    {
+      "name": "deep_research",
+      "description": "Autonomous multi-step research. Searches, reads pages, synthesizes findings."
+    },
+    {
+      "name": "autonomous_research",
+      "description": "Run an autonomous multi-step research loop on a topic."
+    }
+  ],
+  "categories": [
+    "Developer Tools",
+    "Education & Research"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
