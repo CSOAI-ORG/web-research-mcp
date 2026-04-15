@@ -1,6 +1,6 @@
 name: web-research-mcp
-description: 'Web search and browser automation toolkit: DuckDuckGo search, page extraction,
-  screenshots, click/ty'
+description: AI-powered web research MCP server for agents. Supports web search, browse
+  page, extract article. By MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: web_search
