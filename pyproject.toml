@@ -22,3 +22,6 @@ Repository = "https://github.com/CSOAI-ORG/web-research-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+web_research_mcp = "server:main"
