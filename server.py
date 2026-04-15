@@ -123,6 +123,8 @@ def _web_search(query: str, limit: int = 5) -> dict:
 # ---------------------------------------------------------------------------
 def _browse_page(url: str, action: str = "extract", instruction: str = "") -> dict:
     """Browse a webpage using Playwright in a subprocess."""
+    if not url.startswith(("http://", "https://")):
+        return {"status": "error", "message": "Invalid URL. Only http:// and https:// are allowed."}
     script = f'''
 import json, sys, base64
 from playwright.sync_api import sync_playwright
