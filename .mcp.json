@@ -1,6 +1,6 @@
 {
   "name": "web-research-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click/ty",
   "version": "1.0.0",
   "tools": [
     {
