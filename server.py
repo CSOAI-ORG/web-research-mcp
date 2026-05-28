@@ -129,10 +129,8 @@ def _browse_page(url: str, action: str = "extract", instruction: str = "") -> di
 import json, sys, base64
 from playwright.sync_api import sync_playwright
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 url = {repr(url)}
@@ -247,7 +245,7 @@ def web_search(query: str, limit: int = 5, api_key: str = "") -> dict:
     for the top results. No API key required."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     err = _check_rate_limit()
     if err:
@@ -267,7 +265,7 @@ def browse_page(url: str, action: str = "extract", instruction: str = "", api_ke
     Requires: playwright installed with chromium."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     err = _check_rate_limit()
     if err:
@@ -286,7 +284,7 @@ def extract_article(url: str, api_key: str = "") -> dict:
     paragraph count."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     err = _check_rate_limit()
     if err:
@@ -305,7 +303,7 @@ def research_topic(query: str, depth: int = 3, api_key: str = "") -> dict:
     Depth controls how many pages to read (1-5)."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     err = _check_rate_limit()
     if err:
@@ -358,7 +356,7 @@ def get_weather(location: str = "London", api_key: str = "") -> dict:
     """Get current weather for a location using wttr.in (no API key needed)."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     err = _check_rate_limit()
     if err:
@@ -392,7 +390,7 @@ def deep_research(topic: str, depth: int = 3, api_key: str = "") -> str:
     """Autonomous multi-step research. Searches, reads pages, synthesizes findings."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
 
     if err := _check_rate_limit(): return err
     steps = []
@@ -405,9 +403,18 @@ def deep_research(topic: str, depth: int = 3, api_key: str = "") -> str:
 async def autonomous_research(topic: str, depth: int = 2, api_key: str = "") -> str:
     """Run an autonomous multi-step research loop on a topic."""
     import json
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     
     steps = []
     for i in range(depth):
@@ -424,5 +431,8 @@ async def autonomous_research(topic: str, depth: int = 2, api_key: str = "") -> 
         "synthesis": f"Autonomous research on '{topic}' completed with {depth} iterative queries."
     }
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
