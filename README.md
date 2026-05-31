@@ -1,59 +1,78 @@
-# Web Research MCP Server
+# Web Research MCP
 
-> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/web_research_mcp/)
 
-Web search and browser automation toolkit for AI agents. Search the web via DuckDuckGo (no API key), browse pages with headless Chromium, extract article content, take screenshots, and run multi-step research workflows.
+> Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click...
 
-[![MCPize](https://img.shields.io/badge/MCPize-Listed-blue)](https://mcpize.com/mcp/web-research)
-[![MIT License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `web_search` | Search the web using DuckDuckGo (no API key needed) |
-| `browse_page` | Browse a webpage using headless Chromium (Playwright) |
-| `extract_article` | Extract clean, readable article text from a URL |
-| `research_topic` | Multi-step research: search the web, then extract content |
-| `get_weather` | Get current weather for a location via wttr.in |
-
-## Quick Start
-
-```bash
-pip install mcp
-git clone https://github.com/CSOAI-ORG/web-research-mcp.git
-cd web-research-mcp
-python server.py
-```
-
-## Claude Desktop Config
-
-```json
-{
-  "mcpServers": {
-    "web-research": {
-      "command": "python",
-      "args": ["server.py"],
-      "cwd": "/path/to/web-research-mcp"
-    }
-  }
-}
-```
-
-## Pricing
-
-| Plan | Price | Requests |
-|------|-------|----------|
-| Free | $0/mo | 25 calls/day |
-| Pro | $9/mo | Unlimited + full screenshots + PDF export |
-| Enterprise | Contact us | Custom + proxy rotation + CAPTCHA solving |
-
-[Get on MCPize](https://mcpize.com/mcp/web-research)
-
-## Part of MEOK AI Labs
-
-This is one of 255+ MCP servers by MEOK AI Labs. Browse all at [meok.ai](https://meok.ai) or [GitHub](https://github.com/CSOAI-ORG).
+Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click/type automation, and article reader.
 
 ---
-**MEOK AI Labs** | [meok.ai](https://meok.ai) | nicholas@meok.ai | United Kingdom
+
+## 🚀 Quick Start
+
+```bash
+# Install via pip
+pip install web_research_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install web-research-mcp --client claude
+```
+
+## ✨ Features
+
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
+
+## 📖 Documentation
+
+- [Full Documentation](https://docs.meok.ai/web-research-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
+
+## 🛡️ Compliance
+
+This MCP server is built with **EU AI Act compliance** built-in:
+
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
+
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
+
+## 🏢 Enterprise
+
+Need custom development, SLA guarantees, or white-label deployment?
+
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
