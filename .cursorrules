@@ -1,0 +1,9 @@
+# web-research-mcp - Auto-trigger Rules
+
+When the user asks about web research, use web-research-mcp tools: web_search, browse_page, extract_article, research_topic, get_weather
+
+> **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
+
+Install: `pip install web-research-mcp`
+
+By MEOK AI Labs — MIT licensed.

@@ -1,34 +1,42 @@
-# Web Research MCP
-
-> Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click...
-
-`web-research-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# web-research-mcp
+# > **By [MEOK AI Labs](https://meok.ai)** — Sovereign AI tools for everyone.
 
 ## Install
-
 ```bash
 pip install web-research-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx web-research-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `web_search` — Search the web using DuckDuckGo. Returns titles, URLs, and snippets
-- `browse_page` — Browse a webpage using a headless Chromium browser (Playwright).
-- `extract_article` — Extract clean, readable article text from a URL. Strips navigation,
-- `research_topic` — Multi-step research workflow: search the web, then extract content from
-- `get_weather` — Get current weather for a location using wttr.in (no API key needed).
-- `deep_research` — Autonomous multi-step research. Searches, reads pages, synthesizes findings.
-- `autonomous_research` — Run an autonomous multi-step research loop on a topic.
+### `web_search`
+Search the web using DuckDuckGo. Returns titles, URLs, and snippets
 
-## Links
+### `browse_page`
+Browse a webpage using a headless Chromium browser (Playwright).
 
-- Source: https://github.com/CSOAI-ORG/web-research-mcp
-- PyPI: https://pypi.org/project/web-research-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `extract_article`
+Extract clean, readable article text from a URL. Strips navigation,
+
+### `research_topic`
+Multi-step research workflow: search the web, then extract content from
+
+### `get_weather`
+Get current weather for a location using wttr.in (no API key needed).
+
+### `deep_research`
+Autonomous multi-step research. Searches, reads pages, synthesizes findings.
+
+### `autonomous_research`
+Run an autonomous multi-step research loop on a topic.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

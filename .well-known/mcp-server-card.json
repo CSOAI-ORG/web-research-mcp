@@ -1,0 +1,6 @@
+{
+  "serverInfo": { "name": "web-research-mcp", "version": "1.0.0" },
+  "tools": [
+    {"name": "web_search", "description": "MCP tool from MEOK AI Labs"}, {"name": "browse_page", "description": "MCP tool from MEOK AI Labs"}, {"name": "extract_article", "description": "MCP tool from MEOK AI Labs"}, {"name": "research_topic", "description": "MCP tool from MEOK AI Labs"}, {"name": "get_weather", "description": "MCP tool from MEOK AI Labs"}
+  ]
+}

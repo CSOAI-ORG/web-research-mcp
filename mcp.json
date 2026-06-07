@@ -1,0 +1,10 @@
+{
+  "name": "Web Research",
+  "description": "AI-powered web research with source citation and verification",
+  "vendor": "MEOK AI Labs",
+  "sourceUrl": "https://github.com/CSOAI-ORG/web-research-mcp",
+  "homepage": "https://meok.ai/mcp/web-research-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "server.py"
+}
