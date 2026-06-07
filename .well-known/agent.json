@@ -1,0 +1,86 @@
+{
+  "name": "web-research-mcp",
+  "description": "web-research-mcp by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/web-research-mcp.html",
+  "version": "1.0.5",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "web_search",
+      "name": "Web Search",
+      "description": "web_search via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "browse_page",
+      "name": "Browse Page",
+      "description": "browse_page via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "extract_article",
+      "name": "Extract Article",
+      "description": "extract_article via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "research_topic",
+      "name": "Research Topic",
+      "description": "research_topic via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_weather",
+      "name": "Get Weather",
+      "description": "get_weather via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "deep_research",
+      "name": "Deep Research",
+      "description": "deep_research via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "autonomous_research",
+      "name": "Autonomous Research",
+      "description": "autonomous_research via web-research-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

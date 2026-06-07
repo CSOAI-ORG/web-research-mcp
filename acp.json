@@ -1,0 +1,25 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "web-research-mcp",
+    "description": "web-research-mcp by MEOK AI Labs",
+    "version": "1.0.5",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "web-research-mcp"
+      }
+    ],
+    "capabilities": [
+      "web_search",
+      "browse_page",
+      "extract_article",
+      "research_topic",
+      "get_weather",
+      "deep_research",
+      "autonomous_research"
+    ]
+  }
+}
