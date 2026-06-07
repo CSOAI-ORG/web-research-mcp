@@ -1,0 +1,34 @@
+# Web Research MCP
+
+> Web search and browser automation toolkit: DuckDuckGo search, page extraction, screenshots, click...
+
+`web-research-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install web-research-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx web-research-mcp
+```
+
+## Tools
+
+- `web_search` — Search the web using DuckDuckGo. Returns titles, URLs, and snippets
+- `browse_page` — Browse a webpage using a headless Chromium browser (Playwright).
+- `extract_article` — Extract clean, readable article text from a URL. Strips navigation,
+- `research_topic` — Multi-step research workflow: search the web, then extract content from
+- `get_weather` — Get current weather for a location using wttr.in (no API key needed).
+- `deep_research` — Autonomous multi-step research. Searches, reads pages, synthesizes findings.
+- `autonomous_research` — Run an autonomous multi-step research loop on a topic.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/web-research-mcp
+- PyPI: https://pypi.org/project/web-research-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
