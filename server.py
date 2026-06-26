@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+Buy Pro: https://www.csoai.org/checkout
+
 Web Research MCP Server
 ========================
 Web browsing and research toolkit for AI agents. Search the web via DuckDuckGo,
